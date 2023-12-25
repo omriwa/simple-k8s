@@ -3,6 +3,7 @@ kind: Deployment
 
 metadata:
   name: mongodb-deployment
+  namespace: mongo-express-project
   labels:
    app: mongodb
 
@@ -40,6 +41,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: mongo-db-service
+  namespace: mongo-express-project
 
 spec:
   selector:
