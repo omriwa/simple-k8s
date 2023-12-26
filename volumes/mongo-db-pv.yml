@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: mongodb-pv
+
+spec:
+  storageClassName: ""
+  hostPath:
+    path: /media/omri/Shared/projects/k8s-tutorial/volumes
+  capacity:
+    storage: 0.5Gi
+  accessModes:
+  - ReadWriteMany
+  claimRef:
+    name: mongodb-pvc

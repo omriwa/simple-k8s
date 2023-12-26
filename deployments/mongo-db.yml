@@ -19,6 +19,11 @@ spec:
         app: mongodb
 
     spec:
+      volumes:
+      - name: mongodb-pv
+        hostPath:
+          path: /media/omri/Shared/projects/k8s-tutorial/volumes
+
       containers:
       - name: mongodb
         image: mongo:latest
@@ -36,3 +41,6 @@ spec:
               secretKeyRef:
                 name: mongodb-secret
                 key: root-password
+        volumeMounts:
+        - name: mongodb-pv
+          mountPath: /data/db
