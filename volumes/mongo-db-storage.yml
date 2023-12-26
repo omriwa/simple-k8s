@@ -4,4 +4,35 @@ metadata:
   name: mongodb-local-storage
 
 provisioner: kubernetes.io/no-provisioner
-volumeBindingMode: WaitForFirstConsumer
+volumeBindingMode: Immediate
+
+---
+
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: mongodb-storage-pv
+
+spec:
+  storageClassName: mongodb-local-storage
+  hostPath:
+    path: /media/omri/Shared/projects/k8s-tutorial/volumes/storage
+  capacity:
+    storage: 0.5Gi
+  accessModes:
+  - ReadWriteMany
+
+---
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mongodb-storage-pvc
+
+spec:
+  storageClassName: mongodb-local-storage
+  resources:
+    requests:
+      storage: 0.5Gi
+  accessModes:
+  - ReadWriteMany

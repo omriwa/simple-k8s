@@ -20,9 +20,9 @@ spec:
 
     spec:
       volumes:
-      - name: mongodb-pv
-        hostPath:
-          path: /media/omri/Shared/projects/k8s-tutorial/volumes
+      - name: mongodb-storage-pv
+        persistentVolumeClaim:
+          claimName: mongodb-storage-pvc
 
       containers:
       - name: mongodb
@@ -42,5 +42,5 @@ spec:
                 name: mongodb-secret
                 key: root-password
         volumeMounts:
-        - name: mongodb-pv
+        - name: mongodb-storage-pv
           mountPath: /data/db

@@ -13,3 +13,19 @@ spec:
   - ReadWriteMany
   claimRef:
     name: mongodb-pvc
+
+---
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mongodb-pvc
+
+spec:
+  storageClassName: ""
+  volumeName: mongodb-pv
+  resources:
+    requests:
+      storage: 0.5Gi
+  accessModes:
+  - ReadWriteMany
