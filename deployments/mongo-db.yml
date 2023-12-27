@@ -21,8 +21,8 @@ spec:
     spec:
       volumes:
       - name: mongodb-storage-pv
-        persistentVolumeClaim:
-          claimName: mongodb-storage-pvc
+        hostPath:
+          path: /media/omri/Shared/projects/k8s-tutorial/volumes/storage
 
       containers:
       - name: mongodb

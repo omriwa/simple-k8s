@@ -6,7 +6,7 @@ metadata:
 spec:
   storageClassName: ""
   hostPath:
-    path: /media/omri/Shared/projects/k8s-tutorial/volumes
+    path: /media/omri/Shared/projects/k8s-tutorial/volumes/pv
   capacity:
     storage: 0.5Gi
   accessModes:
